@@ -1,0 +1,129 @@
+import java.util.ArrayList;
+import java.util.Vector;
+
+public class DataStructureDemo {
+
+    // Method untuk mendemonstrasikan Array satu dimensi
+    public void demonstrateArray() {
+        System.out.println("--- Demonstrasi Array Satu Dimensi ---");
+
+        // Deklarasi dan inisialisasi array double
+        double[] myList = new double[10];
+        myList[0] = 5.6;
+        myList[1] = 4.5;
+        myList[2] = 3.3;
+        myList[3] = 13.2;
+        myList[4] = 4.0;
+        myList[5] = 34.33;
+        myList[6] = 34.0;
+        myList[7] = 45.45;
+        myList[8] = 99.993;
+        myList[9] = 11123;
+
+        // Mencari nilai terbesar
+        double max = myList[0];
+        for (int i = 1; i < myList.length; i++) {
+            if (myList[i] > max) {
+                max = myList[i];
+            }
+        }
+        System.out.println("Nilai terbesar adalah: " + max);
+
+        // Menghitung total
+        double total = 0;
+        for (double element : myList) { // Menggunakan for-each loop
+            total += element;
+        }
+        System.out.println("Total dari elemen array adalah: " + total);
+
+        // Contoh duplikasi array dengan arraycopy()
+        int[] sourceArray = {2, 3, 1, 5, 10};
+        int[] targetArray = new int[sourceArray.length];
+        System.arraycopy(sourceArray, 0, targetArray, 0, sourceArray.length);
+        System.out.print("Array hasil duplikasi (menggunakan arraycopy): ");
+        for (int value : targetArray) {
+            System.out.print(value + " ");
+        }
+        System.out.println("\n");
+    }
+
+    // Method untuk mendemonstrasikan Array dua dimensi
+    public void demonstrateTwoDimensionalArray() {
+        System.out.println("--- Demonstrasi Array Dua Dimensi ---");
+
+        // Deklarasi dan inisialisasi array dua dimensi
+        int[][] matrix = {
+            {1, 2, 3},
+            {4, 5, 6},
+            {7, 8, 9},
+            {10, 11, 12}
+        };
+
+        int total = 0;
+
+        // Loop bersarang untuk memproses array
+        System.out.println("Isi matriks:");
+        for (int[] row : matrix) {
+            for (int element : row) {
+                System.out.printf("%3d", element);
+                total += element;
+            }
+            System.out.println();
+        }
+
+        System.out.println("Total penjumlahan semua elemen: " + total + "\n");
+    }
+
+    // Method untuk mendemonstrasikan ArrayList
+    public void demonstrateArrayList() {
+        System.out.println("--- Demonstrasi ArrayList ---");
+
+        // Membuat ArrayList
+        ArrayList<String> names = new ArrayList<String>();
+
+        // Menambahkan elemen
+        names.add("Andre");
+        names.add("Bunga");
+        names.add("Christine");
+
+        System.out.println("ArrayList awal: " + names);
+
+        // Mengambil elemen
+        System.out.println("Elemen pada indeks 1: " + names.get(1));
+
+        // Menghapus elemen
+        names.remove(1);
+        System.out.println("ArrayList setelah menghapus elemen pada indeks 1: " + names + "\n");
+    }
+
+    // Method untuk mendemonstrasikan Vector
+    public void demonstrateVector() {
+        System.out.println("--- Demonstrasi Vector ---");
+        
+        // Membuat Vector
+        Vector<String> languages = new Vector<String>();
+
+        // Menambahkan elemen
+        languages.addElement("Java");
+        languages.addElement("Python");
+        languages.addElement("C++");
+
+        System.out.println("Vector awal: " + languages);
+
+        // Mengambil elemen
+        System.out.println("Elemen pada indeks 0: " + languages.elementAt(0));
+
+        // Mengetahui ukuran
+        System.out.println("Ukuran Vector: " + languages.size());
+    }
+
+    public static void main(String[] args) {
+        DataStructureDemo demo = new DataStructureDemo();
+
+        // Panggil setiap method demonstrasi
+        demo.demonstrateArray();
+        demo.demonstrateTwoDimensionalArray();
+        demo.demonstrateArrayList();
+        demo.demonstrateVector();
+    }
+}
