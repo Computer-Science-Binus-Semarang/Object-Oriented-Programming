@@ -1,0 +1,98 @@
+import java.util.ArrayList;
+
+public class DemoAllWrappers {
+    public static void main(String[] args) {
+
+        // ==========================================
+        // 1. TIPE DATA ANGKA BULAT (INTEGER TYPES)
+        // ==========================================
+        
+        // byte vs Byte
+        byte bPrim = 120;
+        Byte bObj = 120;
+        Byte bNull = null; // Bisa null
+        byte bParsed = Byte.parseByte("125"); // Fitur parsing teks
+
+        // short vs Short
+        short sPrim = 3000;
+        Short sObj = Short.valueOf("3000");
+
+        // int vs Integer
+        int iPrim = 500;
+        Integer iObj = 500;
+        int iMax = Integer.max(100, 250); // Fitur utilitas
+
+        // long vs Long
+        long lPrim = 9999999999L;
+        Long lObj = Long.parseLong("9999999999");
+
+
+        // ==========================================
+        // 2. TIPE DATA DESIMAL (FLOATING POINT)
+        // ==========================================
+        
+        // float vs Float
+        float fPrim = 3.14f;
+        Float fObj = Float.parseFloat("3.14");
+
+        // double vs Double
+        double dPrim = 99.99;
+        Double dObj = Double.parseDouble("99.99");
+        boolean cekNan = Double.isNaN(Math.sqrt(-1)); // Fitur cek Not-a-Number
+
+
+        // ==========================================
+        // 3. TIPE DATA LOGIKA (BOOLEAN)
+        // ==========================================
+        
+        // boolean vs Boolean
+        boolean boolPrim = true;
+        Boolean boolObj = Boolean.parseBoolean("true"); // Mengubah teks jadi boolean
+        Boolean statusAktif = null; // Memungkinkan status 'belum dipilih'
+
+
+        // ==========================================
+        // 4. TIPE DATA KARAKTER (CHARACTER)
+        // ==========================================
+        
+        // char vs Character
+        char cPrim = 'a';
+        Character cObj = '9';
+        
+        // Character punya banyak method pengecekan praktis:
+        boolean cekAngka = Character.isDigit(cObj);      // true
+        boolean cekHuruf = Character.isLetter(cPrim);     // true
+        char hurufBesar  = Character.toUpperCase(cPrim); // 'A'
+
+
+        // ==========================================
+        // 5. PENGGUNAAN PADA STRUKTUR DATA (COLLECTIONS)
+        // ==========================================
+        
+        // Koleksi Java (ArrayList) WAJIB menggunakan Wrapper Class
+        ArrayList<Double> daftarHarga = new ArrayList<>();
+        daftarHarga.add(15000.50);
+        daftarHarga.add(dObj);
+
+        ArrayList<Character> daftarKarakter = new ArrayList<>();
+        daftarKarakter.add('X');
+        daftarKarakter.add(cObj);
+
+        ArrayList<Boolean> daftarStatus = new ArrayList<>();
+        daftarStatus.add(true);
+        daftarStatus.add(statusAktif); // Menyimpan null di dalam list
+
+
+        // ==========================================
+        // OUTPUT CONTOH
+        // ==========================================
+        System.out.println("Status Null (Boolean): " + statusAktif);
+        System.out.println("Hasil Parse (Byte): " + bParsed);
+        System.out.println("Angka Terbesar (Integer): " + iMax);
+        System.out.println("Cek NaN (Double): " + cekNan);
+        System.out.println("Cek Angka pada Karakter '9': " + cekAngka);
+        System.out.println("Karakter 'a' ke Huruf Besar: " + hurufBesar);
+        System.out.println("Isi ArrayList<Double>: " + daftarHarga);
+        System.out.println("Isi ArrayList<Boolean>: " + daftarStatus);
+    }
+}
